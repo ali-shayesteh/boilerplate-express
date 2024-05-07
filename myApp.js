@@ -7,6 +7,7 @@ let app = express();
 
 
 app.get("/", function(req, res) {
+    console.log(process.env.MESSAGE_STYLE)
     res.sendFile(__dirname + "/views/index.html");
 })
 
