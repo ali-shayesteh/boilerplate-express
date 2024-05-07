@@ -14,11 +14,10 @@ app.get("/", function(req, res) {
 app.use( "/public", express.static(__dirname + "/public") );
 
 app.get("/json", function(req, res){
-    const message = process.env.MESSAGE_STYLE === 'uppercase'
+
+    res.json({"message":  process.env.MESSAGE_STYLE === 'uppercase'
     ? "HELLO JSON" 
-    : "Hello json";
-    console.log(process.env.MESSAGE_STYLE, message)
-    res.json({"message":  message});
+    : "Hello json"});
 })
 
  module.exports = app;
