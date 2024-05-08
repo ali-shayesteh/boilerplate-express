@@ -9,9 +9,12 @@ app.use(function midleware(req, res, next){
     next();
 })
 
-// app.get("/", function(req, res) {
-//     res.send("Hello Express");
-// })
+app.get("/now", function(req,res, next) {
+    req.time = new Date().toString();
+    next();
+}, function(req, res) {
+    res.json({time: req.time})
+})
 
 
 app.get("/", function(req, res) {
