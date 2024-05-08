@@ -10,6 +10,8 @@ app.use(function midleware(req, res, next){
     next();
 }, bodyParser.urlencoded({extended: false}) )
 
+app.use( "/public", express.static(__dirname + "/public") );
+
 app.get("/now", function(req,res, next) {
     req.time = new Date().toString();
     next();
@@ -41,7 +43,7 @@ app.get("/json", function(req, res){
 })
 
 
-// app.use( "/public", express.static(__dirname + "/public") );
+
 
 
 
