@@ -1,4 +1,5 @@
 require('dotenv').config()
+let bodyParser = require('body-parser');
 let express = require('express');
 let app = express();
 
@@ -7,7 +8,7 @@ app.use(function midleware(req, res, next){
     const log = req.method + " " + req.path + " - " + req.ip;
     console.log(log);
     next();
-})
+}, bodyParser.urlencoded({extended: false}) )
 
 app.get("/now", function(req,res, next) {
     req.time = new Date().toString();
