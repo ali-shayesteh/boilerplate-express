@@ -16,6 +16,11 @@ app.get("/now", function(req,res, next) {
     res.json({time: req.time})
 })
 
+app.get("/name", function (req, res) {
+    const fullName = req.query.first + " " + req.query.last;
+    res.json({ name: fullName})
+})
+
 app.get("/:word/echo", function(req, res){
     const word = req.params.word;
     res.json({echo: word})
