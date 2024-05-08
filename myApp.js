@@ -20,6 +20,9 @@ app.get("/now", function(req,res, next) {
 app.get("/name", function (req, res) {
     const fullName = req.query.first + " " + req.query.last;
     res.json({ name: fullName})
+}).post(function (req, res) {
+    const fullName = req.body.first + " " + req.body.last;
+    res.json({ name: fullName})
 })
 
 app.get("/:word/echo", function(req, res){
