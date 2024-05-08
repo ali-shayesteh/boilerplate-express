@@ -17,7 +17,7 @@ app.get("/now", function(req,res, next) {
     res.json({time: req.time})
 })
 
-app.get("/name", function (req, res) {
+app.route("/name").get( function (req, res) {
     const fullName = req.query.first + " " + req.query.last;
     res.json({ name: fullName})
 }).post(function (req, res) {
